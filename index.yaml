@@ -9,6 +9,6 @@ entries:
     name: opencti
     type: application
     urls:
-    - https://github.com/nek974/Helm-Opencti/opencti-0.1.0.tgz
+    - https://github.com/nek974/Helm-Opencti/blob/main/opencti/opencti-0.1.0.tgz
     version: 0.1.0
 generated: "2023-05-29T08:19:56.563553437Z"

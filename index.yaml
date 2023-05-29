@@ -8,6 +8,8 @@ entries:
     digest: 4cbc94551cb7ce56096aa0353accaa297fa6308619f3c655a7115e90beb29f5f
     name: opencti
     type: application
+    sources:
+        - https://github.com/nek974/Helm-Opencti/tree/main/opencti
     urls:
     - https://github.com/nek974/Helm-Opencti/blob/main/opencti/opencti-0.1.0.tgz
     version: 0.1.0

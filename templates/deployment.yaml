@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose --file docker-compose.yml convert
+    kompose.version: 1.28.0 (c4137012e)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: opencti
+  name: opencti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: opencti
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose --file docker-compose.yml convert
+        kompose.version: 1.28.0 (c4137012e)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: opencti
+    spec:
+      containers:
+        - env:
+            - name: APP__ADMIN__EMAIL
+              value: "{{ .Values.opencti.APP__ADMIN__EMAIL }}"
+            - name: APP__ADMIN__PASSWORD
+              value: "{{ .Values.opencti.APP__ADMIN__PASSWORD }}"
+            - name: APP__ADMIN__TOKEN
+              value: "{{ .Values.opencti.APP__ADMIN__TOKEN }}"
+            - name: APP__APP_LOGS__LOGS_LEVEL
+              value: "{{ .Values.opencti.APP__APP_LOGS__LOGS_LEVEL }}"
+            - name: APP__BASE_URL
+              value: "{{ .Values.opencti.APP__BASE_URL}}"
+            - name: APP__PORT
+              value: "{{ .Values.opencti.APP__PORT}}"
+            - name: ELASTICSEARCH__URL
+              value: "{{ .Values.opencti.ELASTICSEARCH__URL }}"
+            - name: MINIO__ACCESS_KEY
+              value: "{{ .Values.opencti.MINIO__ACCESS_KEY }}"
+            - name: MINIO__ENDPOINT
+              value: "{{ .Values.opencti.MINIO__ENDPOINT }}"
+            - name: MINIO__PORT
+              value: "{{ .Values.opencti.MINIO__PORT }}"
+            - name: MINIO__SECRET_KEY
+              value: "{{ .Values.opencti.MINIO__SECRET_KEY }}"
+            - name: MINIO__USE_SSL
+              value: "{{ .Values.opencti.MINIO__USE_SSL }}"
+            - name: NODE_OPTIONS
+              value: "{{ .Values.opencti.NODE_OPTIONS }}"
+            - name: PROVIDERS__LOCAL__STRATEGY
+              value: "{{ .Values.opencti.PROVIDERS__LOCAL__STRATEGY }}"
+            - name: RABBITMQ__HOSTNAME
+              value: "{{ .Values.opencti.RABBITMQ__HOSTNAME }}"
+            - name: RABBITMQ__MANAGEMENT_SSL
+              value: "{{ .Values.opencti.RABBITMQ__MANAGEMENT_SSL }}"
+            - name: RABBITMQ__PASSWORD
+              value: "{{ .Values.opencti.RABBITMQ__PASSWORD }}"
+            - name: RABBITMQ__PORT
+              value: "{{ .Values.opencti.RABBITMQ__PORT }}"
+            - name: RABBITMQ__PORT_MANAGEMENT
+              value: "{{ .Values.opencti.RABBITMQ__PORT_MANAGEMENT }}"
+            - name: RABBITMQ__USERNAME
+              value: "{{ .Values.opencti.RABBITMQ__USERNAME }}"
+            - name: REDIS__HOSTNAME
+              value: "{{ .Values.opencti.REDIS__HOSTNAME }}"
+            - name: REDIS__PORT
+              value: "{{ .Values.opencti.REDIS__PORT }}"
+            - name: SMTP__HOSTNAME
+              value: "{{ .Values.opencti.SMTP__HOSTNAME }}"
+            - name: SMTP__PORT
+              value: "{{ .Values.opencti.SMTP__PORT }}"
+          image: opencti/platform:5.7.6
+          name: opencti
+          ports:
+            - containerPort: 8080
+          resources: {}
+      restartPolicy: Always
+      tolerations:
+        - key: kubernetes.azure.com/scalesetpriority
+          operator: Equal
+          value: spot
+          effect: NoSchedule
+status: {}

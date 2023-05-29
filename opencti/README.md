@@ -1,3 +1,4 @@
+<!--- app-name: opencti -->
 # OpenCTI Docker deployment
 
 ## Documentation

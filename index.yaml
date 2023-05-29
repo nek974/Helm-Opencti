@@ -9,7 +9,7 @@ entries:
     name: opencti
     type: application
     sources:
-        - https://github.com/nek974/Helm-Opencti/tree/main/opencti
+    - https://github.com/nek974/Helm-Opencti/tree/main/opencti
     urls:
     - https://github.com/nek974/Helm-Opencti/blob/main/opencti/opencti-0.1.0.tgz
     version: 0.1.0

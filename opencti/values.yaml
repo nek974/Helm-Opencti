@@ -82,7 +82,7 @@ tolerations: []
 affinity: {}
 
 opencti:
-  APP__ADMIN__EMAIL: admin@974.cloud
+  APP__ADMIN__EMAIL: user@example.com
   APP__ADMIN__PASSWORD:  ChangeMe
   APP__ADMIN__TOKEN: UUIDChangeMe
   APP__APP_LOGS__LOGS_LEVEL: error

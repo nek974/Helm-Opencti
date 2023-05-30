@@ -5,7 +5,7 @@ entries:
     appVersion: 5.7.6
     created: "2023-05-29T08:19:56.564261081Z"
     description: A Helm chart for OpenCTI
-    digest: 4cbc94551cb7ce56096aa0353accaa297fa6308619f3c655a7115e90beb29f5f
+    digest: 32a23c46cbf56fde4e4760c3cf253b0df3b0c070a363edf000b1412c80636044
     name: opencti
     type: application
     home: https://github.com/nek974/Helm-Opencti/tree/main/opencti

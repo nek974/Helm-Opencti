@@ -1,0 +1,108 @@
+# Default values for opencti.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: infodom
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+opencti:
+  APP__ADMIN__EMAIL: admin@974.cloud
+  APP__ADMIN__PASSWORD:  ChangeMe
+  APP__ADMIN__TOKEN: UUIDChangeMe
+  APP__APP_LOGS__LOGS_LEVEL: error
+  APP__BASE_URL: http://opencti.local
+  APP__PORT: 8080
+  ELASTICSEARCH__URL: http://elastic:9200
+  MINIO__ACCESS_KEY: ChangeMe
+  MINIO__ENDPOINT: localhost
+  MINIO__PORT: 9000
+  MINIO__SECRET_KEY: ChangeMe
+  MINIO__USE_SSL: false
+  NODE_OPTIONS:  --max-old-space-size=8096
+  PROVIDERS__LOCAL__STRATEGY: LocalStrategy
+  RABBITMQ__HOSTNAME: localhost
+  RABBITMQ__MANAGEMENT_SSL: false
+  RABBITMQ__PASSWORD: ChangeMe
+  RABBITMQ__PORT: 5672
+  RABBITMQ__PORT_MANAGEMENT: 15672
+  RABBITMQ__USERNAME: admin
+  REDIS__HOSTNAME: localhost
+  REDIS__PORT: 6379
+  SMTP__HOSTNAME: localhost
+  SMTP__PORT: 25

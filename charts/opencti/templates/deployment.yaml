@@ -59,13 +59,13 @@ spec:
             - name: RABBITMQ__MANAGEMENT_SSL
               value: "{{ .Values.opencti.RABBITMQ__MANAGEMENT_SSL }}"
             - name: RABBITMQ__PASSWORD
-              value: "{{ .Values.opencti.RABBITMQ__PASSWORD }}"
+              value: {{ .Values.opencti.RABBITMQ__PASSWORD }}
             - name: RABBITMQ__PORT
               value: "{{ .Values.opencti.RABBITMQ__PORT }}"
             - name: RABBITMQ__PORT_MANAGEMENT
               value: "{{ .Values.opencti.RABBITMQ__PORT_MANAGEMENT }}"
             - name: RABBITMQ__USERNAME
-              value: "{{ .Values.opencti.RABBITMQ__USERNAME }}"
+              value: {{ .Values.opencti.RABBITMQ__USERNAME }}
             - name: REDIS__HOSTNAME
               value: "{{ .Values.opencti.REDIS__HOSTNAME }}"
             - name: REDIS__PORT

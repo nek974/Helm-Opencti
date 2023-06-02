@@ -27,33 +27,33 @@ spec:
       containers:
         - env:
             - name: APP__ADMIN__EMAIL
-              value: "{{ .Values.opencti.APP__ADMIN__EMAIL }}"
+              value: {{ .Values.opencti.APP__ADMIN__EMAIL }}
             - name: APP__ADMIN__PASSWORD
-              value: "{{ .Values.opencti.APP__ADMIN__PASSWORD }}"
+              value: {{ .Values.opencti.APP__ADMIN__PASSWORD }}
             - name: APP__ADMIN__TOKEN
-              value: "{{ .Values.opencti.APP__ADMIN__TOKEN }}"
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
             - name: APP__APP_LOGS__LOGS_LEVEL
-              value: "{{ .Values.opencti.APP__APP_LOGS__LOGS_LEVEL }}"
+              value: {{ .Values.opencti.APP__APP_LOGS__LOGS_LEVEL }}
             - name: APP__BASE_URL
-              value: "{{ .Values.opencti.APP__BASE_URL}}"
+              value: {{ .Values.opencti.APP__BASE_URL}}
             - name: APP__PORT
-              value: "{{ .Values.opencti.APP__PORT}}"
+              value: {{ .Values.opencti.APP__PORT}}
             - name: ELASTICSEARCH__URL
-              value: "{{ .Values.opencti.ELASTICSEARCH__URL }}"
+              value: {{ .Values.opencti.ELASTICSEARCH__URL }}
             - name: MINIO__ACCESS_KEY
-              value: "{{ .Values.opencti.MINIO__ACCESS_KEY }}"
+              value: {{ .Values.opencti.MINIO__ACCESS_KEY }}
             - name: MINIO__ENDPOINT
-              value: "{{ .Values.opencti.MINIO__ENDPOINT }}"
+              value: {{ .Values.opencti.MINIO__ENDPOINT }}
             - name: MINIO__PORT
-              value: "{{ .Values.opencti.MINIO__PORT }}"
+              value: {{ .Values.opencti.MINIO__PORT }}
             - name: MINIO__SECRET_KEY
-              value: "{{ .Values.opencti.MINIO__SECRET_KEY }}"
+              value: {{ .Values.opencti.MINIO__SECRET_KEY }}
             - name: MINIO__USE_SSL
-              value: "{{ .Values.opencti.MINIO__USE_SSL }}"
+              value: {{ .Values.opencti.MINIO__USE_SSL }}
             - name: NODE_OPTIONS
-              value: "{{ .Values.opencti.NODE_OPTIONS }}"
+              value: {{ .Values.opencti.NODE_OPTIONS }}
             - name: PROVIDERS__LOCAL__STRATEGY
-              value: "{{ .Values.opencti.PROVIDERS__LOCAL__STRATEGY }}"
+              value: {{ .Values.opencti.PROVIDERS__LOCAL__STRATEGY }}
             - name: RABBITMQ__HOSTNAME
               value: {{ .Values.opencti.RABBITMQ__HOSTNAME }}
             - name: RABBITMQ__MANAGEMENT_SSL
@@ -69,11 +69,11 @@ spec:
             - name: REDIS__HOSTNAME
               value: {{ .Values.opencti.REDIS__HOSTNAME }}
             - name: REDIS__PORT
-              value: "{{ .Values.opencti.REDIS__PORT }}"
+              value: {{ .Values.opencti.REDIS__PORT }}
             - name: SMTP__HOSTNAME
-              value: "{{ .Values.opencti.SMTP__HOSTNAME }}"
+              value: {{ .Values.opencti.SMTP__HOSTNAME }}
             - name: SMTP__PORT
-              value: "{{ .Values.opencti.SMTP__PORT }}"
+              value: {{ .Values.opencti.SMTP__PORT }}
           image: opencti/platform:5.7.6
           name: opencti
           ports:

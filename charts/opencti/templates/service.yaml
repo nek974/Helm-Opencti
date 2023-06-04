@@ -42,4 +42,4 @@ spec:
       nodePort: null
       {{- end }}
   selector:
-    {{- include "opencti.selectorLabels" . | nindent 4 }}
+    io.kompose.service: opencti

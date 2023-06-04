@@ -33,8 +33,11 @@ spec:
             {{- if eq "true" (include "common.ingress.supportsPathType" .) }}
             pathType: {{ .Values.ingress.pathType }}
             {{- end }}
-            backend:
-                number: {{ .Values.service.ports.http }}
+            backend: 
+              service:
+                name: opencti
+                port:
+                  number: {{ .Values.service.ports.http }}
     {{- end }}
     {{- range .Values.ingress.extraHosts }}
     - host: {{ .name | quote }}

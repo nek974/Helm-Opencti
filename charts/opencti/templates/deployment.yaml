@@ -5,8 +5,11 @@ metadata:
     kompose.cmd: kompose --file docker-compose.yml convert
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
-  labels:
-    io.kompose.service: opencti
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
+    {{- end }}
+  {{- if or .Values.ingress.annotations .Values.commonAnnotations }}
   name: opencti
 spec:
   replicas: 1
@@ -14,6 +17,14 @@ spec:
     matchLabels:
       io.kompose.service: opencti
   strategy: {}
+  {{- if .Values.affinity }}
+  affinity: {{- include "common.tplvalues.render" (dict "value" .Values.affinity "context" $) | nindent 8 }}
+  {{- else }}
+  affinity:
+      podAffinity: {{- include "common.affinities.pods" (dict "type" .Values.podAffinityPreset "context" $) | nindent 10 }}
+      podAntiAffinity: {{- include "common.affinities.pods" (dict "type" .Values.podAntiAffinityPreset "context" $) | nindent 10 }}
+      nodeAffinity: {{- include "common.affinities.nodes" (dict "type" .Values.nodeAffinityPreset.type "key" .Values.nodeAffinityPreset.key "values" .Values.nodeAffinityPreset.values) | nindent 10 }}
+  {{- end }}
   template:
     metadata:
       annotations:
@@ -74,15 +85,17 @@ spec:
               value: {{ .Values.opencti.SMTP__HOSTNAME }}
             - name: SMTP__PORT
               value: "{{ .Values.opencti.SMTP__PORT }}"
-          image: opencti/platform:5.7.6
+          image: {{ .Values.image.repository }}
           name: opencti
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.containerPorts.http }}
           resources: {}
       restartPolicy: Always
-      tolerations:
-        - key: kubernetes.azure.com/scalesetpriority
-          operator: Equal
-          value: spot
-          effect: NoSchedule
+      initContainers:
+          {{- if .Values.initContainers }}
+          {{- include "common.tplvalues.render" (dict "value" .Values.initContainers "context" $) | nindent 8 }}
+          {{- end }}
+      tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
+      {{- end }}
+      {{- if .Values.schedulerName }}
 status: {}

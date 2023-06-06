@@ -91,7 +91,9 @@ spec:
             - containerPort: {{ .Values.containerPorts.http }}
           resources: {}
       restartPolicy: Always
-    {{- if .Values.tolerations }}
-    tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
-    {{- end }}
+      tolerations:
+	    - key: kubernetes.azure.com/scalesetpriority
+          operator: Equal
+          value: spot
+          effect: NoSchedule
 status: {}

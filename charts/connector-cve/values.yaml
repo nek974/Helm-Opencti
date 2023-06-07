@@ -57,7 +57,7 @@ opencti:
   APP__BASE_URL: http://localhost
   
   
-connector-cve:
+connectorcve:
   enabled: false
   APP__CONNECTOR-CVE__TOKEN: ChangeMe
 

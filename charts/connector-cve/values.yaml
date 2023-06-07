@@ -1,0 +1,63 @@
+## @section Global parameters
+## Global Docker image parameters
+## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
+
+## @param global.imageRegistry Global Docker image registry
+## @param global.imagePullSecrets Global Docker registry secret names as an array
+## @param global.storageClass Global StorageClass for Persistent Volume(s)
+##
+global:
+  imageRegistry: ""
+  ## E.g.
+  ## imagePullSecrets:
+  ##   - myRegistryKeySecretName
+  ##
+  imagePullSecrets: []
+  storageClass: ""
+
+## @section opencti Image parameters
+
+## Bitnami opencti image
+## ref: https://hub.docker.com/r/bitnami/opencti/tags/
+## @param image.registry opencti image registry
+## @param image.repository opencti image repository
+## @param image.tag opencti image tag (immutable tags are recommended)
+## @param image.digest opencti image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
+## @param image.pullPolicy opencti image pull policy
+## @param image.pullSecrets opencti image pull secrets
+## @param image.debug Enable image debug mode
+##
+image:
+  registry: docker.io
+  repository: opencti/connector-cve:5.7.6
+  tag: ""
+  digest: ""
+  ## Specify a imagePullPolicy
+  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+  ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+  ##
+  pullPolicy: IfNotPresent
+  ## Optionally specify an array of imagePullSecrets.
+  ## Secrets must be manually created in the namespace.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  ## e.g:
+  ## pullSecrets:
+  ##   - myRegistryKeySecretName
+  ##
+  pullSecrets: []
+  ## Enable debug mode
+  ##
+  debug: false
+
+
+
+opencti:
+  APP__ADMIN__TOKEN: UUIDChangeMe
+  APP__BASE_URL: http://localhost
+  
+  
+connector-cve:
+  enabled: false
+  APP__CONNECTOR-CVE__TOKEN: ChangeMe
+

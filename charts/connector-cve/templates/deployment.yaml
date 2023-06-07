@@ -1,0 +1,63 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: connector-cve
+  name: connector-cve
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: connector-cve
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-cve
+    spec:
+      containers:
+        - env:
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "75"
+            - name: CONNECTOR_ID
+              value: {{ .Values.connector-cve.APP__CONNECTOR-CVE__TOKEN}}
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: Common Vulnerabilities and Exposures
+            - name: CONNECTOR_RUN_AND_TERMINATE
+              value: "false"
+            - name: CONNECTOR_SCOPE
+              value: identity,vulnerability
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "false"
+            - name: CVE_HISTORY_DATA_FEED
+              value: https://nvd.nist.gov/feeds/json/cve/1.1/
+            - name: CVE_HISTORY_START_YEAR
+              value: "2002"
+            - name: CVE_IMPORT_HISTORY
+              value: "true"
+            - name: CVE_INTERVAL
+              value: "7"
+            - name: CVE_NVD_DATA_FEED
+              value: https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: {{ .Values.image.repository }}
+          name: connector-cve
+          resources: {}
+      restartPolicy: Always
+status: {}

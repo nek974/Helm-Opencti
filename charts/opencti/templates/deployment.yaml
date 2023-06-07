@@ -42,7 +42,10 @@ spec:
             - name: APP__ADMIN__EMAIL
               value: {{ .Values.opencti.APP__ADMIN__EMAIL }}
             - name: APP__ADMIN__PASSWORD
-              value: {{ .Values.opencti.APP__ADMIN__PASSWORD }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "common.names.fullname" . }}
+                  key: opencti-password
             - name: APP__ADMIN__TOKEN
               value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
             - name: APP__APP_LOGS__LOGS_LEVEL
@@ -50,7 +53,7 @@ spec:
             - name: APP__BASE_URL
               value: {{ .Values.opencti.APP__BASE_URL}}
             - name: APP__PORT
-              value: "{{ .Values.opencti.APP__PORT}}"
+              value: "{{ .Values.containerPorts.http }}"
             - name: ELASTICSEARCH__URL
               value: {{ .Values.opencti.ELASTICSEARCH__URL }}
             - name: MINIO__ACCESS_KEY

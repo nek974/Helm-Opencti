@@ -29,7 +29,7 @@ spec:
             - name: CONNECTOR_CONFIDENCE_LEVEL
               value: "75"
             - name: CONNECTOR_ID
-              value: {{ .Values.connectorcve.APP__CONNECTOR-CVE__TOKEN}}
+              value: {{ .Values.connectorcve.APP__CONNECTORCVE__TOKEN}}
             - name: CONNECTOR_LOG_LEVEL
               value: info
             - name: CONNECTOR_NAME

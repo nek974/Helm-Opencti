@@ -58,6 +58,5 @@ opencti:
   
   
 connectorcve:
-  enabled: false
-  APP__CONNECTOR-CVE__TOKEN: ChangeMe
+  APP__CONNECTORCVE__TOKEN: ChangeMe
 

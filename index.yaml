@@ -3,7 +3,19 @@ entries:
   opencti:
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.346451325Z"
+    created: "2023-06-07T02:22:56.787280097Z"
+    description: A Helm chart for OpenCTI
+    digest: e4f3d4a63278a96c5985feadeb62f24933b68ad95e93bc7bee2f051e9475acf2
+    name: opencti
+    sources:
+    - https://github.com/nek974/Helm-Opencti/tree/main/opencti
+    type: application
+    urls:
+    - https://nek974.github.io/Helm-Opencti/opencti-0.4.4.tgz
+    version: 0.4.4
+  - apiVersion: v2
+    appVersion: 5.7.6
+    created: "2023-06-07T02:22:56.784526705Z"
     description: A Helm chart for OpenCTI
     digest: 8f813ea64617eedb3857aadb525a73b6edf58a4c5257f539fac77eaab0fe9793
     name: opencti
@@ -15,7 +27,7 @@ entries:
     version: 0.4.3
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.34467313Z"
+    created: "2023-06-07T02:22:56.78269651Z"
     description: A Helm chart for OpenCTI
     digest: 3796df279776e90a3025a0306e0533471943d35185710cfa438b6c6d50cc4f89
     name: opencti
@@ -27,7 +39,7 @@ entries:
     version: 0.4.2
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.342918536Z"
+    created: "2023-06-07T02:22:56.780933015Z"
     description: A Helm chart for OpenCTI
     digest: 76456460e062de604a29acac45866b18d4ecb030605f0214d2b318eea460826c
     name: opencti
@@ -39,7 +51,7 @@ entries:
     version: 0.4.1
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.341158542Z"
+    created: "2023-06-07T02:22:56.77914572Z"
     description: A Helm chart for OpenCTI
     digest: 749d3ff4b66510f8af2ced1975d03a70668588a8b58067c7938da01279a5266a
     name: opencti
@@ -51,7 +63,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.339367147Z"
+    created: "2023-06-07T02:22:56.777288526Z"
     description: A Helm chart for OpenCTI
     digest: 30b376e61f2acb1e2953ba67c529b665db8af3568fcf086cb3a0589bb1045c21
     name: opencti
@@ -63,7 +75,7 @@ entries:
     version: 0.3.9
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.336944755Z"
+    created: "2023-06-07T02:22:56.775420331Z"
     description: A Helm chart for OpenCTI
     digest: 4807b16a8ba726238cabd44777ab22e4bb2f8a3eecceb90185f3fe2786eab9b3
     name: opencti
@@ -75,7 +87,7 @@ entries:
     version: 0.3.8
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.334743962Z"
+    created: "2023-06-07T02:22:56.773440736Z"
     description: A Helm chart for OpenCTI
     digest: 9f09dae44b4fed061b1773c7297d5c8ed87fc97144a4aff363e13fb9d5fc6fb5
     name: opencti
@@ -87,7 +99,7 @@ entries:
     version: 0.3.7
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.332960868Z"
+    created: "2023-06-07T02:22:56.770527745Z"
     description: A Helm chart for OpenCTI
     digest: 49169da89a2cec6ce677718913428cd6ee573bb747ba0afcbabb708d0b140694
     name: opencti
@@ -99,7 +111,7 @@ entries:
     version: 0.3.6
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.330102677Z"
+    created: "2023-06-07T02:22:56.767696053Z"
     description: A Helm chart for OpenCTI
     digest: 7fa05b427f4e5b6b71b7b4c9857bdb2b34ad49fe60f76a24e8aef3d354e2e473
     name: opencti
@@ -111,7 +123,7 @@ entries:
     version: 0.3.5
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.327503585Z"
+    created: "2023-06-07T02:22:56.76504336Z"
     description: A Helm chart for OpenCTI
     digest: df75798ef529e3afbe2e6aabf9ea794dcd9775d808cb73196ed0affeb38a1d04
     name: opencti
@@ -123,7 +135,7 @@ entries:
     version: 0.3.4
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.324812393Z"
+    created: "2023-06-07T02:22:56.762373068Z"
     description: A Helm chart for OpenCTI
     digest: 292162c9b035ea2b5a9bfc9b6304d949bbf8e465bb4f1868ad689a8c1d2589b6
     name: opencti
@@ -135,7 +147,7 @@ entries:
     version: 0.3.3
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.320940006Z"
+    created: "2023-06-07T02:22:56.757001883Z"
     description: A Helm chart for OpenCTI
     digest: b66c7c2b32fe99f6157acc391b9506247ab01766f96a6687618abf808e94afbc
     name: opencti
@@ -147,7 +159,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.317686316Z"
+    created: "2023-06-07T02:22:56.754137691Z"
     description: A Helm chart for OpenCTI
     digest: 957f0e2b417b50c3a46dd2bfa53b4c001970d229da32b02436fdcfab55207d69
     name: opencti
@@ -159,7 +171,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.315053124Z"
+    created: "2023-06-07T02:22:56.751497199Z"
     description: A Helm chart for OpenCTI
     digest: 28ebb08107f85a723629142bb3cf18f4a6cf14a792d60682a5e2970d84b0447c
     name: opencti
@@ -171,7 +183,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.312281833Z"
+    created: "2023-06-07T02:22:56.748635807Z"
     description: A Helm chart for OpenCTI
     digest: 446e03c92713c8b679b78875684f9721c0b30a0c97ca4a7b81d63c47bfc38fce
     name: opencti
@@ -183,7 +195,7 @@ entries:
     version: 0.2.9
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.309555742Z"
+    created: "2023-06-07T02:22:56.744702618Z"
     description: A Helm chart for OpenCTI
     digest: 0afe4edb4f682b7c7a8a3cf7d54f6d9de0090d3a47aed29372282f1aab00acca
     name: opencti
@@ -195,7 +207,7 @@ entries:
     version: 0.2.8
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.301859166Z"
+    created: "2023-06-07T02:22:56.741970026Z"
     description: A Helm chart for OpenCTI
     digest: f8a3d1d9134dc4663401b6e48b6ddc3b8d9107476750eb0e9d04a59a5135e938
     name: opencti
@@ -207,7 +219,7 @@ entries:
     version: 0.2.7
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.300407271Z"
+    created: "2023-06-07T02:22:56.74032383Z"
     description: A Helm chart for OpenCTI
     digest: c12c4bfe82e120aa45d725988fa15ecc7d5f58ba08edeb37175db45acfe284fe
     name: opencti
@@ -219,7 +231,7 @@ entries:
     version: 0.2.6
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.299052875Z"
+    created: "2023-06-07T02:22:56.738894834Z"
     description: A Helm chart for OpenCTI
     digest: 25622c9dc5c5e6918f0ddb252dce12ef87cf55c47513ab5db2c38e933b01ca5f
     name: opencti
@@ -231,7 +243,7 @@ entries:
     version: 0.2.5
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.29767098Z"
+    created: "2023-06-07T02:22:56.736371041Z"
     description: A Helm chart for OpenCTI
     digest: 1f71ee15b34dc7261f81d2b311bba19a7533fee4a02bd42f51742b1a22e4bc43
     name: opencti
@@ -243,7 +255,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.296332884Z"
+    created: "2023-06-07T02:22:56.734950645Z"
     description: A Helm chart for OpenCTI
     digest: d46e30b1941e51bf1ab593bb3199ed4e94fb4fb7950398567ad9374ad09e620e
     name: opencti
@@ -255,7 +267,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.295676386Z"
+    created: "2023-06-07T02:22:56.734301247Z"
     description: A Helm chart for OpenCTI
     digest: ff149b284488eda062ef9223e973fa916b4b2cebe5b7b60d32b324e180b69a68
     name: opencti
@@ -267,7 +279,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.294904488Z"
+    created: "2023-06-07T02:22:56.733612649Z"
     description: A Helm chart for OpenCTI
     digest: 083112ab796555878d06dc625b03be527b489890275d108cf1a969444e9e4cb2
     name: opencti
@@ -279,7 +291,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.293671192Z"
+    created: "2023-06-07T02:22:56.732877651Z"
     description: A Helm chart for OpenCTI
     digest: 0711b5ee04f97997cf992e9a551f74b29502a85d75bf0873cd845cf697870327
     name: opencti
@@ -291,7 +303,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.292783795Z"
+    created: "2023-06-07T02:22:56.731546655Z"
     description: A Helm chart for OpenCTI
     digest: ff90ea0bd165b2051e7f7245a8fa40969ff44b073f44fd6387823f0ad2d1e3dc
     name: opencti
@@ -303,7 +315,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 5.7.6
-    created: "2023-06-06T17:24:08.291779898Z"
+    created: "2023-06-07T02:22:56.730508858Z"
     description: A Helm chart for OpenCTI
     digest: 173abe3ffc4fd120154c6783b3cacb847f486241bb316b5d01afd7ee38035218
     name: opencti
@@ -385,4 +397,4 @@ entries:
     urls:
     - https://nek974.github.io/Helm-Opencti/opencti-0.1.1.tgz
     version: 0.1.1
-generated: "2023-06-06T17:24:08.290889401Z"
+generated: "2023-06-07T02:22:56.728226964Z"

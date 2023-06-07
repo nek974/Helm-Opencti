@@ -99,4 +99,51 @@ spec:
       {{- if .Values.tolerations }}
       tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
       {{- end }}
+  {{- if .Values.connector-cve.enabled }}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-cve
+    spec:
+      containers:
+        - env:
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "75"
+            - name: CONNECTOR_ID
+              value: {{ .Values.opencti.APP__CONNECTOR-CVE__TOKEN }}
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: Common Vulnerabilities and Exposures
+            - name: CONNECTOR_RUN_AND_TERMINATE
+              value: "false"
+            - name: CONNECTOR_SCOPE
+              value: identity,vulnerability
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "false"
+            - name: CVE_HISTORY_DATA_FEED
+              value: https://nvd.nist.gov/feeds/json/cve/1.1/
+            - name: CVE_HISTORY_START_YEAR
+              value: "2002"
+            - name: CVE_IMPORT_HISTORY
+              value: "true"
+            - name: CVE_INTERVAL
+              value: "7"
+            - name: CVE_NVD_DATA_FEED
+              value: https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: opencti/connector-cve:5.7.6
+          name: connector-cve
+          resources: {}
+      restartPolicy: Always
+  {{- end }}
 status: {}

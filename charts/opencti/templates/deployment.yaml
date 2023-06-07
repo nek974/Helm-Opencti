@@ -40,7 +40,7 @@ spec:
       containers:
         - env:
             - name: APP__ADMIN__EMAIL
-              value: {{ .Values.opencti.APP__ADMIN__EMAIL }}
+              value: {{ .Values.openctiUser }}
             - name: APP__ADMIN__PASSWORD
               valueFrom:
                 secretKeyRef:

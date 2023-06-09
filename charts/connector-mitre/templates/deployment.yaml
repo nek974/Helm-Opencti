@@ -1,4 +1,3 @@
-  GNU nano 6.2                                                                                                            connector-mitre-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

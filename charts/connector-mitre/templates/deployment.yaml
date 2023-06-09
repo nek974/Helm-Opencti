@@ -1,0 +1,55 @@
+  GNU nano 6.2                                                                                                            connector-mitre-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: connector-mitre
+  name: connector-mitre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: connector-mitre
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-mitre
+    spec:
+      containers:
+        - env:
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "75"
+            - name: CONNECTOR_ID
+              value: {{ .Values.connectormitre.APP__CONNECTORCVE__TOKEN}}
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: MITRE Datasets
+            - name: CONNECTOR_RUN_AND_TERMINATE
+              value: "false"
+            - name: CONNECTOR_SCOPE
+              value: tool,report,malware,identity,campaign,intrusion-set,attack-pattern,course-of-action,x-mitre-data-source,x-mitre-data-component,x-mitre-matrix,x-mitre-tactic,x-mitre-collection
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "false"
+            - name: CVE_INTERVAL
+              value: "7"
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: {{ .Values.image.repository }}
+          name: connector-cve
+          resources: {}
+      restartPolicy: Always
+status: {}

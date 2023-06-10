@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: connector-opencti
+  name: connector-opencti
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: connector-opencti
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-opencti
+    spec:
+      containers:
+        - env:
+            - name: CONFIG_INTERVAL
+              value: "7"
+            - name: CONFIG_REMOVE_CREATOR
+              value: "false"
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "90"
+            - name: CONNECTOR_ID
+              value: {{ .Values.connector.APP__TOKEN}}
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: OpenCTI Datasets
+            - name: CONNECTOR_SCOPE
+              value: marking-definition,identity,location
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "true"
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: {{ .Values.image.repository }}
+          name: connector-opencti
+          resources: {}
+      restartPolicy: Always
+      {{- if .Values.tolerations }}
+      tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
+      {{- end }}
+status: {}

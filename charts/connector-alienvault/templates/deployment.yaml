@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - env:
-             - name: ALIENVAULT_API_KEY
+            - name: ALIENVAULT_API_KEY
               value: {{ .Values.connector.APP__ALIENVAULT__APIKEY}}
             - name: ALIENVAULT_BASE_URL
               value: https://otx.alienvault.com

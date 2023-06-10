@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: connector-cybercrimetracker
+  name: connector-cybercrimetracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: connector-cybercrimetracker
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-cybercrimetracker
+    spec:
+      containers:
+        - env:
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "15"
+            - name: CONNECTOR_ID
+              value: {{ .Values.connectormitre.APP__CONNECTORCVE__TOKEN}}
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: Cybercrime-Tracker
+            - name: CONNECTOR_SCOPE
+              value: cybercrime-tracker
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "false"
+             - name: CYBERCRIME_TRACKER_CREATE_INDICATORS
+              value: "true"
+            - name: CYBERCRIME_TRACKER_CREATE_OBSERVABLES
+              value: "true"
+            - name: CYBERCRIME_TRACKER_FEED_URL
+              value: http://cybercrime-tracker.net/rss.xml
+            - name: CYBERCRIME_TRACKER_INTERVAL
+              value: "86400"
+            - name: CYBERCRIME_TRACKER_TLP
+              value: CLEAR
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: {{ .Values.image.repository }}
+          name: connector-cybercrimetracker
+          resources: {}
+      restartPolicy: Always
+      {{- if .Values.tolerations }}
+      tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
+      {{- end }}
+status: {}

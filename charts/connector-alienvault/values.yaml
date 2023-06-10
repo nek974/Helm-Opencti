@@ -60,3 +60,5 @@ opencti:
 connector:
   APP__ALIENVAULT__TOKEN: ChangeMe
   APP__ALIENVAULT__APIKEY: ChangeMe
+  ALIENVAULT_GUESS_MALWARE: true
+  ALIENVAULT_GUESS_CVE: true

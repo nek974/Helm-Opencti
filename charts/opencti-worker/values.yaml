@@ -50,7 +50,7 @@ image:
   ##
   debug: false
 
-
+tolerations: []
 
 opencti:
   APP__ADMIN__TOKEN: UUIDChangeMe

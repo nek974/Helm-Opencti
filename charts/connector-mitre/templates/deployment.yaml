@@ -48,7 +48,10 @@ spec:
             - name: OPENCTI_URL
               value: {{ .Values.opencti.APP__BASE_URL}}
           image: {{ .Values.image.repository }}
-          name: connector-cve
+          name: connector-mitre
           resources: {}
       restartPolicy: Always
+      {{- if .Values.tolerations }}
+      tolerations: {{- include "common.tplvalues.render" (dict "value" .Values.tolerations "context" $) | nindent 8 }}
+      {{- end }}
 status: {}

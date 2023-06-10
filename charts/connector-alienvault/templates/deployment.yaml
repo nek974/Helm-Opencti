@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: connector-alienvault
+  name: connector-alienvault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: connector-alienvault
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: connector-alienvault
+    spec:
+      containers:
+        - env:
+             - name: ALIENVAULT_API_KEY
+              value: {{ .Values.connector.APP__ALIENVAULT__APIKEY}}
+            - name: ALIENVAULT_BASE_URL
+              value: https://otx.alienvault.com
+            - name: ALIENVAULT_CREATE_INDICATORS
+              value: "true"
+            - name: ALIENVAULT_CREATE_OBSERVABLES
+              value: "true"
+            - name: ALIENVAULT_ENABLE_ATTACK_PATTERNS_INDICATES
+              value: "true"
+            - name: ALIENVAULT_ENABLE_RELATIONSHIPS
+              value: "true"
+            - name: ALIENVAULT_EXCLUDED_PULSE_INDICATOR_TYPES
+              value: FileHash-MD5,FileHash-SHA1
+            - name: ALIENVAULT_GUESS_CVE
+              value: "false"
+            - name: ALIENVAULT_GUESS_MALWARE
+              value: "false"
+            - name: ALIENVAULT_INTERVAL_SEC
+              value: "1800"
+            - name: ALIENVAULT_PULSE_START_TIMESTAMP
+              value: 2020-05-01T00:00:00
+            - name: ALIENVAULT_REPORT_STATUS
+              value: New
+            - name: ALIENVAULT_REPORT_TYPE
+              value: threat-report
+            - name: ALIENVAULT_TLP
+              value: White
+            - name: CONNECTOR_CONFIDENCE_LEVEL
+              value: "15"
+            - name: CONNECTOR_LOG_LEVEL
+              value: info
+            - name: CONNECTOR_NAME
+              value: AlienVault
+            - name: CONNECTOR_SCOPE
+              value: alienvault
+            - name: CONNECTOR_TYPE
+              value: EXTERNAL_IMPORT
+            - name: CONNECTOR_UPDATE_EXISTING_DATA
+              value: "false"
+            - name: CONNECTOR_ID
+              value: {{ .Values.connector.APP__ALIENVAULT__TOKEN}}
+            - name: OPENCTI_TOKEN
+              value: {{ .Values.opencti.APP__ADMIN__TOKEN }}
+            - name: OPENCTI_URL
+              value: {{ .Values.opencti.APP__BASE_URL}}
+          image: {{ .Values.image.repository }}
+          name: connector-alienvault
+          resources: {}
+      restartPolicy: Always
+status: {}

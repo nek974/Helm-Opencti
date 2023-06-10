@@ -58,5 +58,5 @@ opencti:
   
   
 connector:
-  ALIENVAULT__TOKEN: ChangeMe
-  ALIENVAULT__APIKEY: ChangeMe
+  APP__ALIENVAULT__TOKEN: ChangeMe
+  APP__ALIENVAULT__APIKEY: ChangeMe

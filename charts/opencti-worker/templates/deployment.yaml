@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: opencti-worker
   name: opencti-worker
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       io.kompose.service: opencti-worker

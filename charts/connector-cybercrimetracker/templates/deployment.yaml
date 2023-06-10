@@ -28,7 +28,7 @@ spec:
             - name: CONNECTOR_CONFIDENCE_LEVEL
               value: "15"
             - name: CONNECTOR_ID
-              value: {{ .Values.connectormitre.APP__CONNECTORCVE__TOKEN}}
+              value: {{ .Values.connector.APP__TOKEN}}
             - name: CONNECTOR_LOG_LEVEL
               value: info
             - name: CONNECTOR_NAME
@@ -39,7 +39,7 @@ spec:
               value: EXTERNAL_IMPORT
             - name: CONNECTOR_UPDATE_EXISTING_DATA
               value: "false"
-             - name: CYBERCRIME_TRACKER_CREATE_INDICATORS
+            - name: CYBERCRIME_TRACKER_CREATE_INDICATORS
               value: "true"
             - name: CYBERCRIME_TRACKER_CREATE_OBSERVABLES
               value: "true"

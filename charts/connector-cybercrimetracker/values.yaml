@@ -57,6 +57,6 @@ opencti:
   APP__BASE_URL: http://localhost
   
   
-connectormitre:
-  APP__CONNECTORCVE__TOKEN: ChangeMe
+connector:
+  APP__TOKEN: ChangeMe
 
